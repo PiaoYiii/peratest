@@ -1,0 +1,24 @@
+node() {  
+    stage('构建') { 
+        //test
+		checkout scm
+		echo 'build'
+    }
+    stage('测试') { 
+        // test
+		echo 'test'		
+		//bat label: '', script: 'robot -P . tc'
+		//sh 'echo case001 >> suite.txt'
+		bat 'robot -P . tc'
+    }
+    stage('部署') { 
+        // test 
+		echo 'deploy'
+		
+    }
+	stage('交付') { 
+        // test 
+		echo 'test'
+		//emailext attachmentsPattern: '*.html,*.xml', body: 'test', subject: 'test', to: '2961152797@qq.com'
+    }
+}
